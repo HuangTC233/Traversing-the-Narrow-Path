@@ -50,19 +50,24 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">Traversing the Narrow Path: A Two-Stage Reinforcement Learning Framework for Humanoid Beam Walking</h1>
+          <h1 class="title is-1 publication-title">Traversing Narrow Paths: A Two-Stage Reinforcement Learning Framework for Robust and Safe Humanoid Walking</h1>
           <div class="is-size-5 publication-authors">
 
             <!-- TODO: modify authors, affiliations and personal websites-->
 
             <span class="author-block">
-              <a href="https://www.dfki.de/web/ueber-uns/mitarbeiter/person/TODO">Tiancheng Huang</a><sup>1</sup>,</span>
+              <a href="http://staff.ustc.edu.cn/~swzhang/">Tiancheng Huang</a><sup>1</sup>,</span>
 
             <span class="author-block">
-              <a href="https://www.dfki.de/web/ueber-uns/mitarbeiter/person/TODO">Runcheng Xu</a><sup>1</sup>,</span>
+              <a href="http://staff.ustc.edu.cn/~swzhang/">Runcheng Xu</a><sup>1</sup>,</span>
 
-            <!-- change of line -->
+                          <!-- change of line -->
             <br>
+            <span class="author-block">
+              <a href="http://staff.ustc.edu.cn/~swzhang/">Yu Wang</a><sup>1*</sup></span>
+
+            <span class="author-block">
+              <a href="https://weigao.space">Wei Gao</a><sup>1*</sup></span>
 
             <span class="author-block">
               <a href="http://staff.ustc.edu.cn/~swzhang/">Shiwu Zhang</a><sup>1*</sup></span>
@@ -106,16 +111,15 @@
                 </a>
               </span>
               <!-- Code Link. -->
-              <!-- <span class="link-block">
-                 TODO: replace with your own github paper code link 
-                <a href="https://github.com/DFKI-NI/mobipick_labs"
+              <span class="link-block">
+                <a href="https://huangtc233.github.io/Traversing-the-Narrow-Path/"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-github"></i>
                   </span>
-                  <span>Code</span>
+                  <span>Code(Coming Soon)</span>
                   </a>
-              </span> -->
+              </span>
               <!-- Dataset Link. -->
               <!-- <span class="link-block">
                 TODO: if your paper has a dataset you can uncomment this block
@@ -159,29 +163,7 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Traversing narrow beams is challenging for humanoids due to sparse, safety–critical contacts and the fragility
-            of purely learned policies. We propose a physically grounded,
-            two–stage framework that couples an XCoM/LIPM footstep
-            template with a lightweight residual planner and a simple
-            low–level tracker. Stage–1 is trained on flat ground: the
-            tracker learns to robustly follow footstep targets by adding
-            small random perturbations to heuristic footsteps—without any
-            hand–crafted centerline locking—so it acquires stable contact
-            scheduling and strong target–tracking robustness. Stage–2 is
-            trained in simulation on a beam: a high–level planner predicts
-            a body–frame residual (∆x, ∆y, ∆ψ) for the swing foot only,
-            refining the template step to prioritize safe, precise placement
-            under narrow support while preserving interpretability. To
-            ease deployment, sensing is kept minimal and consistent be-
-            tween simulation and hardware: the planner consumes com-
-            pact, forward–facing elevation cues together with onboard
-            IMU/joint signals. On a Unitree G1, our system reliably
-            traverses a 0.2 m–wide, 3 m–long beam. Across simulation and
-            real–world studies, residual refinement consistently outper-
-            forms template–only and monolithic baselines in success rate,
-            centerline adherence, and safety margins, while the structured
-            footstep interface enables transparent analysis and low–friction
-            sim–to–real transfer.
+            Traversing narrow paths is challenging for humanoid robots due to the sparse and safety-critical footholds required. Purely template-based or end-to-end reinforcement learning-based methods suffer from such harsh terrains. This paper proposes a two–stage training framework for such narrow path traversing tasks, coupling a template-based foothold planner with a low-level foothold tracker from Stage-I training and a lightweight perception aided foothold modifier from Stage-II training. With the curriculum setup from flat ground to narrow paths across stages, the resulted controller in turn learns to robustly track and safely modify foothold targets to ensure precise foot placement over narrow paths. This framework preserves the interpretability from the physics-based template and takes advantage of the generalization capability from reinforcement learning, resulting in easy sim-to-real transfer. The learned policies outperform purely template-based or reinforcement learning-based baselines in terms of success rate, centerline adherence and safety margins. Validation on a Unitree G1 humanoid robot yields successful traversal of a 0.2m–wide and 3m–long beam for 20 trials without any failure.
           </p>
         </div>
       </div>
